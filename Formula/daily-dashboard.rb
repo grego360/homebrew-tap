@@ -9,19 +9,11 @@ class DailyDashboard < Formula
 
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    # Ensure python is available
-    ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin"
+    venv = virtualenv_create(libexec, "python3.12")
 
-    # Create virtualenv
-    venv = virtualenv_create(libexec, python3)
-
-    # Install the package
-    venv.pip_install buildpath
+    # Install from PyPI to get all dependencies
+    system libexec/"bin/pip", "install", "daily-dashboard==0.1.1"
 
     # Link the executable
     bin.install_symlink libexec/"bin/daily-dashboard"
