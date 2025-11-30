@@ -1,8 +1,8 @@
 class DailyDashboard < Formula
   desc "Terminal-based dashboard for news feeds, weather, and network scanning"
   homepage "https://github.com/grego360/daily-dashboard"
-  url "https://files.pythonhosted.org/packages/51/0f/c9276f7dfa47a48fa73e519c87e4966fe9004754af908bcc547a6013f94e/daily_dashboard-0.1.1.tar.gz"
-  sha256 "93a245460274a9294d6f14ed84b4ff5388e696f6405a96d54ca82df307528f8e"
+  url "https://files.pythonhosted.org/packages/93/9e/fb60d3e78f32eade33cccf15913d9f1ba3e946efbd6e3bb35f61b4e39eac/daily_dashboard-0.1.2.tar.gz"
+  sha256 "e25c72c6373d4e6261fc0e947043c5a757e27826abc2500392ffbbf5f78f1cd0"
   license "MIT"
 
   depends_on "python@3.12"
@@ -15,7 +15,7 @@ class DailyDashboard < Formula
     system libexec/"bin/pip", "install", "--upgrade", "pip"
 
     # Install the package with all dependencies from PyPI
-    system libexec/"bin/pip", "install", "daily-dashboard==0.1.1"
+    system libexec/"bin/pip", "install", "daily-dashboard==0.1.2"
 
     # Create wrapper script
     (bin/"daily-dashboard").write <<~EOS
