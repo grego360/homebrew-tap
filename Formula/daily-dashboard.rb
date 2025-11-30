@@ -2,7 +2,7 @@ class DailyDashboard < Formula
   desc "Terminal-based dashboard for news feeds, weather, and network scanning"
   homepage "https://github.com/grego360/daily-dashboard"
   url "https://files.pythonhosted.org/packages/51/0f/c9276f7dfa47a48fa73e519c87e4966fe9004754af908bcc547a6013f94e/daily_dashboard-0.1.1.tar.gz"
-  sha256 "556b0dd997ac332b2308a285b87ddc35edd5ac7f722c43a5a9ecaa7706a7a5f3"
+  sha256 "93a245460274a9294d6f14ed84b4ff5388e696f6405a96d54ca82df307528f8e"
   license "MIT"
 
   depends_on "python@3.12"
