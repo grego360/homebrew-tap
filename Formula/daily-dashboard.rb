@@ -9,13 +9,9 @@ class DailyDashboard < Formula
 
   depends_on "python@3.12"
 
-  resource "textual" do
-    url "https://files.pythonhosted.org/packages/source/t/textual/textual-0.85.2.tar.gz"
-    sha256 "e67ef8c79730a822e46e6f1f63c1d3a9a3a5e4f37ce87a9f6ffae467ba6c4c3e"
-  end
-
   def install
-    virtualenv_install_with_resources
+    virtualenv_create(libexec, "python3.12")
+    system libexec/"bin/pip", "install", buildpath
   end
 
   def caveats
