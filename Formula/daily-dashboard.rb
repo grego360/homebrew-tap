@@ -1,6 +1,4 @@
 class DailyDashboard < Formula
-  include Language::Python::Virtualenv
-
   desc "Terminal-based dashboard for news feeds, weather, and network scanning"
   homepage "https://github.com/grego360/daily-dashboard"
   url "https://files.pythonhosted.org/packages/1f/fd/c15ca37dbb82b4ba33b2c0bf8097e9ca98f85b71741208ad43fd79f71f4d/daily_dashboard-0.1.0.tar.gz"
@@ -10,8 +8,16 @@ class DailyDashboard < Formula
   depends_on "python@3.12"
 
   def install
-    virtualenv_create(libexec, "python3.12")
+    python3 = "python3.12"
+
+    # Create virtualenv with pip
+    system python3, "-m", "venv", libexec
+
+    # Install the package and dependencies
+    system libexec/"bin/pip", "install", "--upgrade", "pip"
     system libexec/"bin/pip", "install", buildpath
+
+    # Link the executable
     bin.install_symlink libexec/"bin/daily-dashboard"
   end
 
